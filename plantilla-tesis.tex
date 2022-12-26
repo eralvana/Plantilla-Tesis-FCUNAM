@@ -1,0 +1,384 @@
+\documentclass[12pt]{book}%Tamaño de la letra y tipo de documento
+
+\usepackage[T1]{fontenc}%Tipo de letra por default, puedes cambiarla por la que te guste en https://tug.org/FontCatalogue/. Descomenta las siguientes dos líneas para ver un ejemplo.
+%\usepackage[zerostyle=d]{newtxtt}
+%\renewcommand*\familydefault{\ttdefault}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+%
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+%
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amscd}
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,mexico]{babel}
+\usepackage{enumerate}
+\usepackage{pgf,tikz}
+\usepackage{wrapfig}
+\usepackage{makeidx}
+\usetikzlibrary{arrows}
+
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{float}%imágenes en el lugar que quieres
+
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=red, citecolor=red]{hyperref}%Con este comando puedes modificar las propiedades de los hipervínculos
+
+
+\usepackage[Glenn]{fncychap}%Esta es una plantilla para libro, puedes modificarla también.
+\ChNameVar{\bfseries\Large}
+\ChNumVar{\Huge}
+\ChTitleVar{\bfseries\Large}
+\ChRuleWidth{0.5 pt}
+\ChNameUpperCase
+\ChTitleUpperCase
+
+\theoremstyle{definition}%Aquí escribes como abreviaras a cada una de los nombres de los recuadros importantes: en vez de poner en cada caso "Definición", pondrás unicamente "df". La palabra entre corchetes indica que se numerarán consecutivamente de acuerdo a lo que se indique en el mismo: en este caso se numeraran definiciones, teoremas, etcétera de acuerdo al capítulo en que se encuentren.
+\newtheorem{df}{Definición}[chapter]
+\newtheorem{teo}{Teorema}[chapter]
+\newtheorem{ej}{Ejemplo}[chapter]
+\newtheorem{prop}{Proposición}[chapter]
+\newtheorem{lema}{Lema}[chapter]
+\newtheorem{cor}{Corolario}[chapter]
+\newtheorem{obs}{Observación}[chapter]
+
+\newenvironment{pba}{\noindent\textbf{Prueba:}}{\begin{flushright} $\square$ \end{flushright}}
+\newenvironment{dem}{\noindent\textbf{Demostración:}}{\begin{flushright} \rule{1ex}{1ex} \end{flushright}}
+
+%Aquí, abreviaciones de tipografía que uses mucho:
+\newcommand{\R}{\mathbb R}
+
+\setcounter{tocdepth}{2}%esto solamente es para que no cuente la página de la portada ni su reverso.
+
+\makeindex%si comentas esto, no imprimirás el índice
+
+
+
+\begin{document}
+
+\title{Título trabajo}
+\author{Autor}
+\date{Fecha}
+\maketitle
+
+\pagenumbering{Roman}
+\tableofcontents
+
+
+%%%%% Nota que aquí empieza la numeración con números romanos
+
+
+
+%%%%%
+%%%%%
+%%%%%Capítulo que no sale en el índice
+\chapter*{Agradecimientos}
+\markboth{}{} %%%Este comando es para que en la parte superior del margen no aparezca el nombre del capítulo.
+
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+
+
+
+
+%%%%%
+%%%%%
+%%%%%Capítulo que sale en el índice pero no tiene número
+\chapter*{Capítulo que sale en el índice pero no tiene número}%Nombre del capítulo
+\addcontentsline{toc}{chapter}{Capítulo que sale en el índice pero no tiene número}%nombre con el que aparecerá en el índice
+\markboth{Marca de la página izquierda}{Marca de la página derecha}
+\pagenumbering{arabic}
+
+Nota que a partir de aquí la numeración es en arábicos y que este capítulo no tiene número pero si aparece en el índice.
+
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 
+
+
+
+%%%%%
+%%%%%
+%%%%% Primer capítulo
+\chapter{Primer capítulo}
+
+Nota que este capítulo ya tiene número. \\
+
+Ahora, un ejemplo de como puedes escribir una Proposición con su prueba y como puedes añadir algo al índice analítico:
+
+
+\begin{prop}
+Primer proposición que define la \textbf{palabra}\index{palabra}.
+\end{prop}
+\begin{pba}
+Se deja al lector.
+\end{pba}
+
+Aquí un ejemplo de como escribir un ejemplo y como escribir más elementos en el índice analítico:
+
+\begin{ej}
+Consideremos un espacio topológico $X$, con algunas otras estructuras adicionales: 
+\begin{itemize}
+\item Tenemos la \textbf{segunda palabra}\index{palabra!segunda}.
+
+\item Tenemos la \textbf{tercera palabra}\index{palabra!tercera}.
+\end{itemize}
+\end{ej}
+
+Ahora, un ejemplo de escribir una definición:
+
+\begin{df}
+Aquí defines el \textbf{primer concepto}\index{primer!concepto}.
+\end{df}
+
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 
+
+\begin{df} Definiremos lo siguiente:
+\begin{itemize}
+\item Aquí defines el \textbf{primer concepto del trabajo}\index{primer!concepto!del trabajo}.
+\item Aquí defines el \textbf{primer concepto de la historia}\index{primer!concepto!de la historia}.
+\end{itemize}
+\end{df}
+
+Nota la manera en la que aparece esta definición en el índice analítico.
+
+
+%%%%%
+%%%%%
+%%%%%Capítulo
+\chapter{Capítulo}\index{Capítulo}
+
+Aquí, un ejemplo de como poner una sección (que sí sale en el índice):
+
+
+%%%%%
+%%%%%
+%%%%%Sección en el índice
+\section{Sección en el índice}
+
+Aquí un ejemplo de una proposición etiquetada para citarla después, así como el ejemplo de una figura etiquetada y cómo citarla:
+
+\begin{prop}\label{prop}
+El enunciado de la proposición.
+\end{prop}
+\begin{pba}
+Por Teorema de Pitágoras (Figura~\ref{dibujo1}), bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 
+
+
+\begin{figure}[!h]
+\begin{center}
+\definecolor{wwwwww}{rgb}{0.4,0.4,0.4}
+\definecolor{ccqqqq}{rgb}{0.8,0,0}
+\definecolor{ccqqtt}{rgb}{0.8,0,0.2}
+\definecolor{uququq}{rgb}{0.25,0.25,0.25}
+\definecolor{ffccqq}{rgb}{1,0.8,0}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\begin{tikzpicture}[x=0.5cm,y=0.5cm]
+\draw (-3.36,0) -- (18.89,0);
+\foreach \x in {-2,2,4,6,8,10,12,14,16,18}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+\draw (0,-2.55) -- (0,12.16);
+\foreach \y in {-2,2,4,6,8,10,12}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+\clip(-3.36,-2.55) rectangle (18.89,12.16);
+\draw [color=ffccqq] (3.09,4.72) -- (12.78,7.61);
+\draw [color=ffccqq] (0,0) -- (9.68,2.88);
+\draw [shift={(4.66,5.49)},color=ccqqqq]  plot[domain=0.09:3.59,variable=\t]({1*1.75*cos(\t r)+0*1.75*sin(\t r)},{0*1.75*cos(\t r)+1*1.75*sin(\t r)});
+\draw [shift={(7.77,5.54)},color=ccqqqq]  plot[domain=-3.22:1.24,variable=\t]({1*1.38*cos(\t r)+0*1.38*sin(\t r)},{0*1.38*cos(\t r)+1*1.38*sin(\t r)});
+\draw [shift={(8.66,7.73)},color=ccqqqq]  plot[domain=1.77:4.26,variable=\t]({1*0.99*cos(\t r)+0*0.99*sin(\t r)},{0*0.99*cos(\t r)+1*0.99*sin(\t r)});
+\draw [shift={(9.86,5.14)},color=ccqqqq]  plot[domain=0.7:1.95,variable=\t]({1*3.82*cos(\t r)+0*3.82*sin(\t r)},{0*3.82*cos(\t r)+1*3.82*sin(\t r)});
+\draw [color=qqqqff] (3.59,6.87) -- (6.66,9.24);
+\draw [color=qqqqff] (0,0) -- (3.07,2.37);
+\draw [dash pattern=on 2pt off 2pt] (6.66,9.24)-- (7.61,6.07);
+\draw [dash pattern=on 2pt off 2pt] (3.59,6.87)-- (4.14,5.04);
+\draw [dash pattern=on 2pt off 2pt] (3.07,2.37)-- (3.47,1.03);
+\draw [line width=1.2pt,dash pattern=on 2pt off 2pt,color=wwwwww] (0,0)-- (3.47,1.03);
+\draw [line width=1.2pt,dash pattern=on 2pt off 2pt,color=wwwwww] (4.14,5.04)-- (7.61,6.07);
+\draw [dash pattern=on 2pt off 2pt,color=wwwwww] (3.59,6.87)-- (7.06,7.9);
+\fill [color=qqqqff] (3.09,4.72) circle (1.5pt);
+\draw[color=qqqqff] (2.5,4.5) node {$\overline x$};
+\fill [color=qqqqff] (12.78,7.61) circle (1.5pt);
+\draw[color=qqqqff] (13,8.5) node {$\overline y$};
+\fill [color=uququq] (0,0) circle (1.5pt);
+\fill [color=ffccqq] (9.68,2.88) circle (1.5pt);
+\fill [color=ccqqtt] (3.59,6.87) circle (1.5pt);
+\draw[color=ccqqtt] (3,7.5) node {$\gamma(t)$};
+\fill [color=qqqqff] (6.66,9.24) circle (1.5pt);
+\fill [color=qqqqff] (3.07,2.37) circle (1.5pt);
+\draw[color=qqqqff] (3.5,3) node {$\gamma\,' (t)$};
+\fill [color=uququq] (4.14,5.04) circle (1.5pt);
+\fill [color=uququq] (7.61,6.07) circle (1.5pt);
+\fill [color=uququq] (3.47,1.03) circle (1.5pt);
+\fill [color=uququq] (7.06,7.9) circle (1.5pt);
+\end{tikzpicture}
+\caption{Proyección ortogonal.}\label{dibujo1}
+\end{center}
+\end{figure}
+
+\end{pba}
+
+
+
+
+
+%%%%%
+%%%%%
+%%%%%Sección no en el índice
+\section*{Sección no en el índice}
+
+Aquí citaré a la Proposición~\ref{prop}, que, si está muy lejos, puedo citar que se encuentra en la página~\pageref{prop}.
+
+Ahora, un ejemplo de Teorema etiquetado y su demostración:
+
+\begin{teo}\label{teo}
+Teorema
+\end{teo}
+\begin{dem}
+Se deja al lector
+\end{dem}
+
+Aquí un ejemplo de Corolario:
+
+\begin{cor}\label{cor}
+Corolario
+\end{cor}
+\begin{pba}
+Se deja al lector
+\end{pba}
+
+
+Aquí, citaré al Teorema~\ref{teo} y Corolario~\ref{cor}. Ahora, un ejemplo de lema:
+
+\begin{lema} \label{lema1}
+Lema1
+\end{lema}
+\begin{dem}
+Se deja al lector
+\end{dem}
+
+Ahora, un teorema con título:
+
+\begin{teo} \textbf{(Teorema con título)}\label{teotitulo}\\
+Información.
+\end{teo}
+\begin{dem}
+Al lector
+\end{dem}
+
+
+Ahora un ejemplo de como poner una imagen entre el texto (a la derecha):
+
+
+Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+
+\begin{wrapfigure}{r}{5.75cm}
+\begin{center}
+\definecolor{qqccff}{rgb}{0,0.8,1}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\begin{tikzpicture}[x=0.125cm,y=0.125cm]
+\draw (-6.31,0) -- (19.54,0);
+\foreach \x in {-6,-4,-2,2,4,6,8,10,12,14,16,18}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+\draw (0,-5.67) -- (0,11.42);
+\foreach \y in {-4,-2,2,4,6,8,10}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+\clip(-6.31,-5.67) rectangle (19.54,11.42);
+\draw [color=qqccff,domain=-6.31:19.54] plot(\x,{(--6.91-0*\x)/1});
+\draw [color=qqccff] (10.56,-5.67) -- (10.56,11.42);
+\fill [color=qqqqff] (0,0) circle (1.5pt);
+\draw[color=qqqqff] (-1.5,-2.5) node {$\overline 0$};
+\fill [color=qqqqff] (0,6.91) circle (1.5pt);
+\draw[color=qqqqff] (-2.5,9) node {$\overline a_2$};
+\fill [color=qqqqff] (10.56,0) circle (1.5pt);
+\draw[color=qqqqff] (9,-2.5) node {$\overline a_1$};
+\fill [color=qqqqff] (10.56,6.91) circle (1.5pt);
+\draw[color=qqqqff] (9,9) node {$\overline a_3$};
+\end{tikzpicture}
+\caption{Paralelogramo en el plano.}\label{sem1}
+\end{center}
+\end{wrapfigure}
+
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla \textcolor{red}{Poner texto en color} (Figura~\ref{sem1}) bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+
+\begin{wrapfigure}{l}{5.75cm}
+\begin{center}
+\definecolor{qqccff}{rgb}{0,0.8,1}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\begin{tikzpicture}[x=0.125cm,y=0.125cm]
+\draw (-6.31,0) -- (19.54,0);
+\foreach \x in {-6,-4,-2,2,4,6,8,10,12,14,16,18}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+\draw (0,-5.67) -- (0,11.42);
+\foreach \y in {-4,-2,2,4,6,8,10}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+\clip(-6.31,-5.67) rectangle (19.54,11.42);
+\draw [color=qqccff,domain=-6.31:19.54] plot(\x,{(--6.91-0*\x)/1});
+\draw [color=qqccff] (10.56,-5.67) -- (10.56,11.42);
+\fill [color=qqqqff] (0,0) circle (1.5pt);
+\draw[color=qqqqff] (-1.5,-2.5) node {$\overline 0$};
+\fill [color=qqqqff] (0,6.91) circle (1.5pt);
+\draw[color=qqqqff] (-2.5,9) node {$\overline a_2$};
+\fill [color=qqqqff] (10.56,0) circle (1.5pt);
+\draw[color=qqqqff] (9,-2.5) node {$\overline a_1$};
+\fill [color=qqqqff] (10.56,6.91) circle (1.5pt);
+\draw[color=qqqqff] (9,9) node {$\overline a_3$};
+\end{tikzpicture}
+\caption{Paralelogramo en el plano.}\label{sem2}
+\end{center}
+\end{wrapfigure}
+
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla  \textcolor{green}{Poner texto en otro color e imagen a la izquierda} (Figura~\ref{sem2}) bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+
+Aquí pondremos ecuaciones etiquetadas para citarlas después:
+
+\begin{eqnarray}
+x&=&y \label{eq1}\\
+y&=&z \label{eq2}
+\end{eqnarray}
+
+Así podemos citar a las ecuaciones \eqref{eq1} y \eqref{eq2}. Otra cita al Teorema~\ref{teo} de la página~\pageref{teo} y a la Proposición~\ref{prop} de la página~\pageref{prop}.
+
+
+
+%%%%%
+%%%%%
+%%%%%
+%%%%%Uno más
+\chapter{Uno más}
+
+Citas al Teorema~\ref{teo} y Corolario~\ref{cor}.
+
+
+También, puedes citar el primer texto de la bibliografía \cite{libro1}.
+
+Puedes citar la página 1o de un libro de la blibliografía así \cite[pág 10]{libro2}.
+
+
+
+
+%%%%%
+%%%%%
+%%%%%BIBLIOGRAFÍA
+\addcontentsline{toc}{chapter}{Bibliografía}% Para UNAM, existe un formato para las referencias bibliográficas, lo puedes encontrar en http://bibliotecas.unam.mx/index.php/desarrollo-de-habilidades-informativas/como-hacer-citas-y-referencias-en-formato-apa
+\begin{thebibliography}{99}
+
+\bibitem{libro1} Apellido, A. A.(año de publicación).Título del trabajo. (edición). Lugar de publicación: Editorial.
+\bibitem{libro2} Apellido, B. B.(año de publicación).Título del trabajo. (edición). Lugar de publicación: Editorial.
+\bibitem{libro3} Apellido, C. C.(año de publicación).Título del trabajo. (edición). Lugar de publicación: Editorial.
+
+\end{thebibliography}
+
+\printindex
+%\listoffigures
+%\listoftables
+
+\end{document}
