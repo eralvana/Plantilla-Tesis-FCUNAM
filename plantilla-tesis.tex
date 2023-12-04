@@ -36,7 +36,6 @@
 
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=red, citecolor=red]{hyperref}%Con este comando puedes modificar las propiedades de los hipervínculos
 
-
 \usepackage[Glenn]{fncychap}%Esta es una plantilla para libro, puedes modificarla también.
 \ChNameVar{\bfseries\Large}
 \ChNumVar{\Huge}
@@ -45,18 +44,58 @@
 \ChNameUpperCase
 \ChTitleUpperCase
 
-\theoremstyle{definition}%Aquí escribes como abreviaras a cada una de los nombres de los recuadros importantes: en vez de poner en cada caso "Definición", pondrás unicamente "df". La palabra entre corchetes indica que se numerarán consecutivamente de acuerdo a lo que se indique en el mismo: en este caso se numeraran definiciones, teoremas, etcétera de acuerdo al capítulo en que se encuentren.
-\newtheorem{df}{Definición}[chapter]
-\newtheorem{teo}{Teorema}[chapter]
-\newtheorem{ej}{Ejemplo}[chapter]
-\newtheorem{prop}{Proposición}[chapter]
-\newtheorem{lema}{Lema}[chapter]
-\newtheorem{cor}{Corolario}[chapter]
-\newtheorem{obs}{Observación}[chapter]
+\usepackage[framemethod=tikz]{mdframed}%Formato bonito a los cuadros de definición/teorema
+\usetikzlibrary{shadows}
 
-\newenvironment{pba}{\noindent\textbf{Prueba:}}{\begin{flushright} $\square$ \end{flushright}}
-\newenvironment{dem}{\noindent\textbf{Demostración:}}{\begin{flushright} \rule{1ex}{1ex} \end{flushright}}
+\theoremstyle{newstyle}%Estilo de los cuadros para todas las definiciones y ambientes de teorema (se pueden poner independientes haciendo esto para cada rubro)
+\mdfdefinestyle{theoremstyle}{
+frametitlealignment=\raggedright,
+linecolor=black,
+linewidth=1,
+%frametitlerule=true,
+frametitlebackgroundcolor=gray!25,
+roundcorner=10,
+backgroundcolor=lightgray!10,
+shadow=true
+}
+%Aquí escribes como abreviaras a cada una de los nombres de los recuadros importantes: en vez de poner en cada caso "Definición", pondrás unicamente "df". La palabra entre corchetes indica que se numerarán consecutivamente de acuerdo a lo que se indique en el mismo: en este caso se numeraran definiciones, teoremas, etcétera de acuerdo al capítulo en que se encuentren.
+\mdtheorem[style=theoremstyle]{df}{Definición}[chapter]
+\mdtheorem[style=theoremstyle]{teo}{Teorema}[chapter]
+\mdtheorem[style=theoremstyle]{prop}{Proposición}[chapter]
+\mdtheorem[style=theoremstyle]{lema}{Lema}[chapter]
+\mdtheorem[style=theoremstyle]{cor}{Corolario}[chapter]
+\mdtheorem[style=theoremstyle]{obs}{Observación}[chapter]
+\mdtheorem[style=theoremstyle]{ej}{Ejemplo}[chapter]
 
+%Cuadro para terminar las demostraciones
+\newcommand\fin[1]{\leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill\quad\hbox{#1}}
+\newcommand\FINDEM{\fin{$\blacksquare$}}
+\newcommand\FINPBA{\fin{$\square$}}
+
+%Cuadro para las demostraciones
+\mdfdefinestyle{dem}{
+    linecolor=gray!25,
+    linewidth=2,
+    topline=false,
+    rightline=false,
+    leftline=true,
+    bottomline=true,
+    }
+\surroundwithmdframed[style=dem]{dem}
+\newenvironment{dem}{\noindent \textbf{Demostración:}}{\FINDEM}
+
+%Cuadro para las pruebas
+\mdfdefinestyle{pba}{
+    linecolor=gray!25,
+    linewidth=2,
+    topline=false,
+    rightline=false,
+    leftline=true,
+    bottomline=true }
+\surroundwithmdframed[style=pba]{pba}
+\newenvironment{pba}{\noindent \textbf{Prueba:}}{\FINPBA}
+  
+  
 %Aquí, abreviaciones de tipografía que uses mucho:
 \newcommand{\R}{\mathbb R}
 
@@ -166,13 +205,13 @@ Aquí, un ejemplo de como poner una sección (que sí sale en el índice):
 \section{Sección en el índice}
 
 Aquí un ejemplo de una proposición etiquetada para citarla después, así como el ejemplo de una figura etiquetada y cómo citarla:
-
-\begin{prop}\label{prop}
+ 
+\begin{prop}[Prueba]\label{prop}
 El enunciado de la proposición.
 \end{prop}
 \begin{pba}
 Por Teorema de Pitágoras (Figura~\ref{dibujo1}), bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 
-
+\end{pba}
 
 \begin{figure}[!h]
 \begin{center}
@@ -224,7 +263,6 @@ Por Teorema de Pitágoras (Figura~\ref{dibujo1}), bla bla bla bla bla bla bla bl
 \end{center}
 \end{figure}
 
-\end{pba}
 
 
 
@@ -239,11 +277,11 @@ Aquí citaré a la Proposición~\ref{prop}, que, si está muy lejos, puedo citar
 
 Ahora, un ejemplo de Teorema etiquetado y su demostración:
 
-\begin{teo}\label{teo}
+\begin{teo}[Nombre del Teorema]\label{teo}
 Teorema
 \end{teo}
 \begin{dem}
-Se deja al lector
+Se deja al lector.
 \end{dem}
 
 Aquí un ejemplo de Corolario:
@@ -267,7 +305,7 @@ Se deja al lector
 
 Ahora, un teorema con título:
 
-\begin{teo} \textbf{(Teorema con título)}\label{teotitulo}\\
+\begin{teo}[Teorema con título]\label{teotitulo}
 Información.
 \end{teo}
 \begin{dem}
